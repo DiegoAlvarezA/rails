@@ -1,0 +1,23 @@
+<h1><%= @product.description %></h1>
+<div class="row around-xs">
+  <div class="col-xs-2">
+    <div class="box"><h1>Cantidad</h1> <%= @product.quantity %></div>
+  </div>
+  <div class="col-xs-2">
+    <div class="box"><h1>Ancho</h1> <%= @product.width %></div>
+  </div>
+  <div class="col-xs-2">
+    <div class="box"><h1>Alto</h1> <%= @product.height %></div>
+  </div>
+  <div class="col-xs-2">
+    <div class="box"><h1>Precio</h1> <%= @product.price %></div>
+  </div>
+</div>
+<div class="row center-xs">
+  <div class="col-xs-6">
+        <div class="box">
+            <%= link_to "Editar", edit_product_path(@product) %>
+            <%= link_to "Eliminar", product_url(@product), method: :delete, class:"red" %>
+        </div>
+    </div>
+</div>

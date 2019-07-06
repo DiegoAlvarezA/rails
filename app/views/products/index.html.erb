@@ -1,0 +1,14 @@
+<% @products.each do |product| %>
+<h1><%= link_to product.description, product %></h1>
+<div>
+  Cantidad: <%= product.quantity %>,
+  Precio: <%= product.price %>
+  <% if request.env['PATH_INFO'] != "/products" %>
+  - <%= button_to 'Adicionar a pedido', linea_items_url(order_id: params[:order_id], product_id: product) %>
+  <%end%>
+</div>
+<% end %>
+<br>
+<div>
+  <%= link_to "Adicionar nuevo producto", new_product_path %>
+</div>

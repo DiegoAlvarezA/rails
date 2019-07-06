@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista de productos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Cantidad</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @linea_items.each do |linea_item| %>
+      <tr>
+        <td><%= linea_item.product.description %></td>
+        <td><%= linea_item.quantity %></td>
+        <td><%= linea_item.total_price %></td>
+        <td><%= link_to 'Eliminar', linea_item, method: :delete, data: { confirm: 'Seguro que quiere eliminar el producto' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Adicionar productos',  order_products_path(customer_id: params[:customer_id], order_id: params[:order_id]) %>
+<!-- new_linea_item_path -->

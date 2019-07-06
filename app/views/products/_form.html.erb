@@ -1,0 +1,27 @@
+<% name ||= "Crear" %>
+<h1><%= name %> producto</h1>
+<%= form_for @product do |f| %>
+<% @product.errors.full_messages.each do |message| %>
+<div class="be-red white top-space">
+  * <%= message %>
+</div>
+<%end%>
+<div class="field">
+  <%= f.text_field :width, placeholder: "ancho", class:"form-control" %>
+</div>
+<div class="field">
+  <%= f.text_field :height, placeholder: "Alto", class:"form-control"%>
+</div>
+<div class="field">
+  <%= f.number_field :price, placeholder: "Precio", class:"form-control"%>
+</div>
+<div class="field">
+  <%= f.number_field :quantity, placeholder: "Cantidad", within:1...200, step:1, class:"form-control" %>
+</div>
+<div class="field">
+  <%= f.text_area :description, placeholder: "Descripción", style:"height:150px;", class:"form-control" %>
+</div>
+<div class="field">
+  <%= f.submit "Guardar", class:"btn be-red white"  %>
+</div>
+<%end%>

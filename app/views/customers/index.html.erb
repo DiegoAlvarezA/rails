@@ -1,0 +1,9 @@
+<% @customers.each do |customer| %>
+<h1><%= link_to customer.email, customer %></h1>
+<div>
+  Nombres: <%= customer.names %>,
+  Apellidos: <%= customer.surnames %>
+</div>
+<% end %>
+<br>
+<%= link_to "Adicionar cliente", new_customer_path %>

@@ -1,0 +1,19 @@
+<h3>Pedidos</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% orders.each do |order| %>
+      <tr>
+        <%= order.linea_items %> - <h1><%= link_to "Ver", customer_order_linea_items_url %></h1>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

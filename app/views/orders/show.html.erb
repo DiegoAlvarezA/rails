@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+  <!-- <%= @order.customer.names %> -->
+  <% @order.linea_items do |linea_item| %>
+  <h1>linea_item</h1>
+  <% end %>
+</div>
+
+<!-- <%= link_to 'Edit', edit_order_path(@order) %> | -->
+<%= link_to 'Back', orders_path %>

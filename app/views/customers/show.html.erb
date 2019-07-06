@@ -1,0 +1,47 @@
+<div class="row around-xs">
+  <div class="col-xs-2">
+    <div class="box"><h1>Nombres </h1> <%= @customer.names %></div>
+  </div>
+  <div class="col-xs-2">
+    <div class="box"><h1>Apellidos </h1> <%= @customer.surnames %></div>
+  </div>
+  <div class="col-xs-2">
+    <div class="box"><h1>Email</h1> <%= @customer.email %></div>
+  </div>
+</div>
+<div class="field">
+  <h3>Pedidos</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Subtotal |</th>
+        <th>IVA: 16% |</th>
+        <th>Total |</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @customer.orders.each do |order| %>
+        <tr>
+          <td><%= order.subtotal %></td>
+          <td><%= order.iva %></td>
+          <td><%= order.total %></td>
+          <td><%= link_to "Ver", customer_order_linea_items_path(:customer_id => @customer, :order_id => order) %></td>
+          <td><%= link_to 'Eliminar Orden', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <h3>Adicionar</h3>
+  <%= render "orders/form" %>
+</div>
+<div class="row center-xs">
+  <div class="col-xs-6">
+        <div class="box">
+            <%= link_to "Editar cliente", edit_customer_path(@customer) %>
+            <%= link_to "Eliminar cliente", customer_url(@customer), method: :delete, class:"red" %>
+        </div>
+    </div>
+</div>

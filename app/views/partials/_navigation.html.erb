@@ -1,0 +1,30 @@
+<header>
+<nav class="be-red white large-padding">
+  <ul class="no-list row center-xs middle-xs" >
+    <li class="col-md link">
+      <!-- <h1 id="logo" class="no-margin">Pedidos Bolsas</h1> -->
+      <%= link_to "Pedidos Bolsas", root_path, id:"logo", class:"no-margin link" %>
+    </li>
+    <% if user_signed_in? %>
+    <li class="col-md link">
+      <%= link_to "Clientes", customers_path, class:"link" %>
+    </li>
+    <li class="col-md link">
+      <%= link_to "Productos", products_path, class:"link"%>
+    </li>
+    <%end%>
+    <% if user_signed_in? %>
+    <li class="col-md link">
+      <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class:"link" %>
+    </li>
+    <%else%>
+    <li class="col-md link">
+      <%= link_to "Iniciar sesión", new_user_session_path, class:"link" %>
+    </li>
+    <li class="col-md link">
+      <%= link_to "Crear Cuenta", new_user_registration_path, class:"link" %>
+    </li>
+    <%end%>
+  </ul>
+</nav>
+</header>

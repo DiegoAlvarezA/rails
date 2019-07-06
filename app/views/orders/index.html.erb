@@ -1,0 +1,8 @@
+<% @customers.each do |customer| %>
+<h3><%= link_to customer.names, customer%></h3>
+<% customer.orders.each do |order| %>
+<div>
+  <%= link_to order.id, order%>
+</div>
+<% end %>
+<% end %>

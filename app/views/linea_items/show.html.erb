@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @linea_item.product %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @linea_item.order %>
+</p>
+
+<%= link_to 'Edit', edit_linea_item_path(@linea_item) %> |
+<%= link_to 'Back', linea_items_path %>
